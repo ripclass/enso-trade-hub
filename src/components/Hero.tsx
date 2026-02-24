@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-20">
       {/* Geometric background */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Grid pattern */}
@@ -74,6 +74,17 @@ const Hero = () => {
               Explore RulHub API
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
             </a>
+          </div>
+
+          {/* Stats strip */}
+          <div className="mt-16 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-sm text-muted-foreground">
+            <div><span className="text-foreground font-semibold">4,000+</span> trade rulesets</div>
+            <div className="hidden sm:block w-px h-4 bg-border" />
+            <div><span className="text-foreground font-semibold">160</span> countries</div>
+            <div className="hidden sm:block w-px h-4 bg-border" />
+            <div><span className="text-foreground font-semibold">47s</span> LC validation</div>
+            <div className="hidden sm:block w-px h-4 bg-border" />
+            <div><span className="text-foreground font-semibold">$32T</span> in global trade</div>
           </div>
         </motion.div>
       </div>
