@@ -188,7 +188,7 @@ const Index = () => {
         <div className="sticky top-3 z-30 mb-10 w-full sm:mb-12 md:top-4 md:mb-16">
           <div className={`rounded-2xl border px-3 py-2 backdrop-blur-md sm:px-5 sm:py-3 ${palette.capsule}`}>
             <div className="flex items-center justify-between gap-2 md:gap-4">
-              <a href="#" className="min-w-0 text-[10px] font-semibold tracking-[0.12em] uppercase opacity-90 whitespace-nowrap sm:text-sm sm:tracking-[0.18em]">
+              <a href="#" className="min-w-0 max-w-[65%] truncate text-[10px] font-semibold tracking-[0.12em] uppercase opacity-90 whitespace-nowrap sm:max-w-none sm:text-sm sm:tracking-[0.18em]">
                 Enso Intelligence
               </a>
 
@@ -197,7 +197,7 @@ const Index = () => {
                   type="button"
                   onClick={toggleTheme}
                   aria-label="Toggle theme"
-                  className={`inline-flex h-8 w-8 items-center justify-center rounded-full border ${palette.toggleSurface} ${palette.toggle}`}
+                  className={`inline-flex h-8 w-8 items-center justify-center rounded-full border md:hidden ${palette.toggleSurface} ${palette.toggle}`}
                 >
                   {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
                 </button>
@@ -219,6 +219,14 @@ const Index = () => {
               <a href="#why-enso" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Why Enso</a>
               <a href="#team" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Team</a>
               <a href="#contact" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Contact</a>
+              <button
+                type="button"
+                onClick={toggleTheme}
+                aria-label="Toggle theme"
+                className={`inline-flex h-8 w-8 items-center justify-center rounded-full border ${palette.toggleSurface} ${palette.toggle}`}
+              >
+                {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
+              </button>
             </div>
 
             {mobileOpen && (
