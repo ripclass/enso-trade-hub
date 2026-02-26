@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Moon, Sun } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 
 const STYLE_ID = "enso-bento-animations";
 
@@ -136,6 +136,7 @@ const SectionHeader = ({
 const Index = () => {
   const [theme, setTheme] = useState<Theme>("dark");
   const [visible, setVisible] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const pageRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -185,28 +186,50 @@ const Index = () => {
 
       <section ref={pageRef} className="relative z-10 mx-auto flex w-full max-w-6xl flex-col px-4 py-14 sm:px-5 sm:py-16 md:py-20 md:px-8 lg:px-10">
         <div className="sticky top-3 z-30 mb-10 w-full sm:mb-12 md:top-4 md:mb-16">
-          <div className={`rounded-2xl border px-3 py-2 backdrop-blur-md sm:rounded-full sm:px-5 sm:py-3 ${palette.capsule}`}>
+          <div className={`rounded-2xl border px-3 py-2 backdrop-blur-md sm:px-5 sm:py-3 ${palette.capsule}`}>
             <div className="flex items-center justify-between gap-2">
               <a href="#" className="text-[11px] font-semibold tracking-[0.14em] uppercase opacity-90 whitespace-nowrap sm:text-sm sm:tracking-[0.18em]">
                 Enso Intelligence
               </a>
-              <button
-                type="button"
-                onClick={toggleTheme}
-                aria-label="Toggle theme"
-                className={`inline-flex h-8 w-8 items-center justify-center rounded-full border ${palette.toggleSurface} ${palette.toggle}`}
-              >
-                {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
-              </button>
+
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={toggleTheme}
+                  aria-label="Toggle theme"
+                  className={`inline-flex h-8 w-8 items-center justify-center rounded-full border ${palette.toggleSurface} ${palette.toggle}`}
+                >
+                  {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setMobileOpen((v) => !v)}
+                  aria-label="Toggle menu"
+                  className={`inline-flex h-8 w-8 items-center justify-center rounded-full border md:hidden ${palette.toggleSurface} ${palette.toggle}`}
+                >
+                  {mobileOpen ? <X size={14} /> : <Menu size={14} />}
+                </button>
+              </div>
             </div>
 
-            <div className="mt-2 grid grid-cols-3 gap-x-3 gap-y-2 text-right sm:mt-0 sm:ml-6 sm:flex sm:flex-1 sm:items-center sm:justify-end sm:gap-6">
-              <a href="#about" className="text-[10px] uppercase tracking-[0.22em] hover:opacity-100 opacity-80 sm:text-xs sm:tracking-[0.35em]">About</a>
-              <a href="#products" className="text-[10px] uppercase tracking-[0.22em] hover:opacity-100 opacity-80 sm:text-xs sm:tracking-[0.35em]">Products</a>
-              <a href="#why-enso" className="text-[10px] uppercase tracking-[0.22em] hover:opacity-100 opacity-80 sm:text-xs sm:tracking-[0.35em]">Why Enso</a>
-              <a href="#team" className="text-[10px] uppercase tracking-[0.22em] hover:opacity-100 opacity-80 sm:text-xs sm:tracking-[0.35em]">Team</a>
-              <a href="#contact" className="text-[10px] uppercase tracking-[0.22em] hover:opacity-100 opacity-80 sm:text-xs sm:tracking-[0.35em]">Contact</a>
+            <div className="hidden md:ml-6 md:flex md:flex-1 md:items-center md:justify-end md:gap-6">
+              <a href="#about" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">About</a>
+              <a href="#products" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Products</a>
+              <a href="#why-enso" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Why Enso</a>
+              <a href="#team" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Team</a>
+              <a href="#contact" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Contact</a>
             </div>
+
+            {mobileOpen && (
+              <div className="mt-3 grid grid-cols-2 gap-2 border-t border-current/10 pt-3 md:hidden">
+                <a href="#about" onClick={() => setMobileOpen(false)} className="rounded-lg px-2 py-2 text-[10px] uppercase tracking-[0.22em] opacity-85">About</a>
+                <a href="#products" onClick={() => setMobileOpen(false)} className="rounded-lg px-2 py-2 text-[10px] uppercase tracking-[0.22em] opacity-85">Products</a>
+                <a href="#why-enso" onClick={() => setMobileOpen(false)} className="rounded-lg px-2 py-2 text-[10px] uppercase tracking-[0.22em] opacity-85">Why Enso</a>
+                <a href="#team" onClick={() => setMobileOpen(false)} className="rounded-lg px-2 py-2 text-[10px] uppercase tracking-[0.22em] opacity-85">Team</a>
+                <a href="#contact" onClick={() => setMobileOpen(false)} className="col-span-2 rounded-lg px-2 py-2 text-[10px] uppercase tracking-[0.22em] opacity-85">Contact</a>
+              </div>
+            )}
           </div>
         </div>
 
