@@ -190,7 +190,7 @@ const Index = () => {
       <div className="absolute inset-0 -z-10" style={{ background: palette.overlay }} />
 
       <section ref={sectionRef} className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-12 px-5 py-24 md:gap-16 md:px-10">
-        <div className={`mx-auto flex w-full max-w-4xl flex-wrap items-center justify-center gap-3 rounded-full border px-4 py-2 text-[11px] uppercase tracking-[0.28em] ${palette.capsule}`}>
+        <div className={`flex w-full max-w-4xl flex-wrap items-start justify-start gap-3 rounded-full border px-4 py-2 text-[11px] uppercase tracking-[0.28em] ${palette.capsule}`}>
           <a href="#about" className="rounded-full border border-current/20 px-3 py-1">About</a>
           <a href="#products" className="rounded-full border border-current/20 px-3 py-1">Products</a>
           <a href="#team" className="rounded-full border border-current/20 px-3 py-1">Team</a>
@@ -200,14 +200,14 @@ const Index = () => {
           </button>
         </div>
 
-        <header className="text-center">
+        <header className="text-left">
           <div className="inline-flex items-center gap-3 rounded-full px-3 py-1 text-xs uppercase tracking-[0.4em]">
             <span className={`h-1 w-14 rounded-full ${palette.headingAccent}`} /> Infrastructure for Global Trade Intelligence
           </div>
           <h1 className={`mt-5 text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl ${palette.heading}`}>
             Enso Intelligence
           </h1>
-          <p className={`mx-auto mt-5 max-w-3xl text-sm sm:text-base md:text-lg ${palette.muted}`}>
+          <p className={`mt-5 max-w-3xl text-sm sm:text-base md:text-lg ${palette.muted}`}>
             We build AI-powered compliance tools and rules infrastructure that give SMEs and trade professionals the same capabilities as the world's largest banks — at a fraction of the cost.
           </p>
         </header>
@@ -220,18 +220,18 @@ const Index = () => {
               data-visible={visible}
               style={{ ["--delay" as string]: `${index * 90}ms` }}
             >
-              <div className="flex flex-col gap-5 text-center">
-                <div className="mx-auto text-xs uppercase tracking-[0.3em] opacity-50">{flow.id}</div>
-                <span className={`mx-auto inline-flex w-fit items-center rounded-full border px-3 py-1 text-[10px] uppercase tracking-[0.4em] ${palette.cardBorder} ${palette.muted}`}>
+              <div className="flex flex-col gap-5 text-left">
+                <div className="text-xs uppercase tracking-[0.3em] opacity-50">{flow.id}</div>
+                <span className={`inline-flex w-fit items-center rounded-full border px-3 py-1 text-[10px] uppercase tracking-[0.4em] ${palette.cardBorder} ${palette.muted}`}>
                   {flow.meta}
                 </span>
                 <h3 className={`text-xl font-semibold leading-tight sm:text-2xl ${palette.heading}`}>{flow.title}</h3>
                 <p className={`text-sm leading-relaxed sm:text-base ${palette.muted}`}>{flow.description}</p>
-                <div className={`mx-auto flex h-14 w-14 items-center justify-center rounded-full border ${palette.cardBorder} ${palette.card}`}>
+                <div className={`flex h-14 w-14 items-center justify-center rounded-full border ${palette.cardBorder} ${palette.card}`}>
                   <span className="enso-icon"><span /></span>
                 </div>
               </div>
-              <div className="mt-8 flex flex-col gap-2 text-center text-xs uppercase tracking-[0.25em] opacity-70">
+              <div className="mt-8 flex flex-col gap-2 text-left text-xs uppercase tracking-[0.25em] opacity-70">
                 <span>{flow.statLabel}</span>
                 <span className="font-semibold">{flow.statValue}</span>
               </div>
@@ -241,14 +241,14 @@ const Index = () => {
 
         <div id="products" className={`grid grid-cols-1 gap-4 rounded-[28px] border p-6 sm:grid-cols-3 ${palette.cardBorder} ${palette.card}`}>
           {metrics.map((metric) => (
-            <div key={metric.label} className={`rounded-[22px] border px-5 py-6 text-center text-xs uppercase tracking-[0.22em] ${palette.metric}`}>
+            <div key={metric.label} className={`rounded-[22px] border px-5 py-6 text-left text-xs uppercase tracking-[0.22em] ${palette.metric}`}>
               <span className="block text-[10px] opacity-60">{metric.label}</span>
               <span className="mt-2 block text-base font-semibold tracking-[0.08em]">{metric.value}</span>
             </div>
           ))}
         </div>
 
-        <footer id="contact" className="flex flex-col items-center gap-5 border-t border-dashed border-current/20 pt-8 text-center">
+        <footer id="contact" className="flex flex-col items-start gap-5 border-t border-dashed border-current/20 pt-8 text-left">
           <span className={`text-xs uppercase tracking-[0.35em] ${palette.muted}`}>Built in Bangladesh. For the world.</span>
           <div className="flex items-center gap-3">
             <a href="mailto:hello@ensointelligence.com" className={`rounded-full border px-5 py-2.5 text-sm font-medium transition ${palette.button}`}>Email us</a>
