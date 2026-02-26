@@ -183,22 +183,29 @@ const Index = () => {
       <div className="absolute inset-0 -z-10" style={{ background: palette.overlay }} />
 
       <section ref={pageRef} className="relative z-10 mx-auto flex w-full max-w-6xl flex-col px-5 py-20 md:px-10">
-        <div className={`sticky top-4 z-30 mb-16 flex w-full max-w-5xl flex-wrap items-center justify-center gap-x-6 gap-y-2 rounded-full border px-6 py-3 backdrop-blur-md md:justify-end ${palette.capsule}`}>
-          <a href="#about" className="px-1 text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">About</a>
-          <a href="#products" className="px-1 text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Products</a>
-          <a href="#why-enso" className="px-1 text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Why Enso</a>
-          <a href="#team" className="px-1 text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Team</a>
-          <a href="#contact" className="px-1 text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Contact</a>
-          <button type="button" onClick={toggleTheme} className={`ml-2 rounded-full border px-3 py-1 text-xs uppercase tracking-[0.2em] ${palette.toggleSurface} ${palette.toggle}`}>
-            {theme === "dark" ? "Night" : "Day"} mode
-          </button>
+        <div className="sticky top-4 z-30 mb-16 flex w-full items-center justify-between gap-4">
+          <a href="#" className="text-sm font-semibold tracking-[0.18em] uppercase opacity-90">
+            Enso Intelligence
+          </a>
+          <div className={`flex w-full max-w-4xl flex-wrap items-center justify-center gap-x-6 gap-y-2 rounded-full border px-6 py-3 backdrop-blur-md md:justify-end ${palette.capsule}`}>
+            <a href="#about" className="px-1 text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">About</a>
+            <a href="#products" className="px-1 text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Products</a>
+            <a href="#why-enso" className="px-1 text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Why Enso</a>
+            <a href="#team" className="px-1 text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Team</a>
+            <a href="#contact" className="px-1 text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Contact</a>
+            <button type="button" onClick={toggleTheme} className={`ml-2 rounded-full border px-3 py-1 text-xs uppercase tracking-[0.2em] ${palette.toggleSurface} ${palette.toggle}`}>
+              {theme === "dark" ? "Night" : "Day"} mode
+            </button>
+          </div>
         </div>
 
         <header className="mb-20">
           <p className={`text-xs uppercase tracking-[0.35em] ${palette.muted}`}>Infrastructure for Global Trade Intelligence</p>
-          <h1 className={`mt-4 max-w-4xl text-3xl font-semibold leading-tight sm:text-5xl ${palette.heading}`}>Enso Intelligence</h1>
+          <h1 className={`mt-4 max-w-5xl text-3xl font-semibold leading-tight sm:text-5xl ${palette.heading}`}>
+            Trade compliance intelligence for teams that move global commerce.
+          </h1>
           <p className={`mt-7 max-w-3xl text-base leading-8 sm:text-[1.15rem] sm:leading-9 ${palette.muted}`}>
-            We build AI-powered compliance tools and rules infrastructure that give SMEs and trade professionals the same capabilities as the world's largest banks — at a fraction of the cost.
+            Enso Intelligence builds AI-powered compliance systems and rules infrastructure so SMEs and trade professionals can operate with the speed, confidence, and control usually reserved for large institutions.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="https://trdrhub.com" target="_blank" rel="noreferrer" className={`rounded-full border px-5 py-2.5 text-sm font-medium transition ${palette.button}`}>
@@ -211,13 +218,26 @@ const Index = () => {
         </header>
 
         <section id="about" className="mb-20">
-          <SectionHeader label="Why We Exist" title="Access to trade intelligence should not be gated by enterprise budgets" palette={palette} />
-          <div className={`enso-card rounded-[28px] border p-7 sm:p-9 ${palette.cardBorder} ${palette.card}`} data-visible={visible} style={{ ["--delay" as string]: "40ms" }}>
-            <div className="grid gap-6 md:grid-cols-3">
-              <p className={`text-[1.02rem] leading-8 ${palette.muted}`}>Trade finance runs the world. $32 trillion in annual global trade depends on Letters of Credit, customs compliance, sanctions screening, and hundreds of international rules most people have never heard of.</p>
-              <p className={`text-[1.02rem] leading-8 ${palette.muted}`}>For decades, access to this knowledge has been locked behind expensive consultants, proprietary bank systems, and enterprise software priced out of reach for the businesses that need it most.</p>
-              <p className={`text-[1.02rem] leading-8 ${palette.muted}`}>Enso Intelligence exists to change that. We build the tools, rules, and intelligence that let any exporter, importer, freight forwarder, or compliance team operate with confidence — regardless of their size or budget.</p>
-            </div>
+          <SectionHeader label="Why We Exist" title="Trade knowledge is critical. Access to it should be universal." palette={palette} />
+          <div className="grid gap-5 md:grid-cols-3">
+            <article className={`enso-card rounded-[28px] border p-6 ${palette.cardBorder} ${palette.card}`} data-visible={visible} style={{ ["--delay" as string]: "40ms" }}>
+              <p className={`text-xs uppercase tracking-[0.28em] ${palette.muted}`}>The Problem</p>
+              <p className={`mt-4 text-[0.98rem] leading-8 ${palette.muted}`}>
+                $32 trillion in annual trade depends on rules most operating teams can’t easily access or interpret at speed.
+              </p>
+            </article>
+            <article className={`enso-card rounded-[28px] border p-6 ${palette.cardBorder} ${palette.card}`} data-visible={visible} style={{ ["--delay" as string]: "90ms" }}>
+              <p className={`text-xs uppercase tracking-[0.28em] ${palette.muted}`}>The Gap</p>
+              <p className={`mt-4 text-[0.98rem] leading-8 ${palette.muted}`}>
+                Traditional compliance capability is bundled into expensive advisory models and enterprise systems.
+              </p>
+            </article>
+            <article className={`enso-card rounded-[28px] border p-6 ${palette.cardBorder} ${palette.card}`} data-visible={visible} style={{ ["--delay" as string]: "140ms" }}>
+              <p className={`text-xs uppercase tracking-[0.28em] ${palette.muted}`}>Our Response</p>
+              <p className={`mt-4 text-[0.98rem] leading-8 ${palette.muted}`}>
+                We productize trade rules and decision intelligence so any serious team can operate with confidence.
+              </p>
+            </article>
           </div>
         </section>
 
@@ -249,12 +269,12 @@ const Index = () => {
         </section>
 
         <section id="why-enso" className="mb-20">
-          <SectionHeader label="A Different Kind of Trade Tech" title="Built for explainability, real-world documents, and SME access" palette={palette} />
+          <SectionHeader label="A Different Kind of Trade Tech" title="Clear rules. Real-world inputs. SME-first economics." palette={palette} />
           <div className="grid gap-5 md:grid-cols-3">
             {pillars.map((p, i) => (
               <article key={p.title} className={`enso-card rounded-[28px] border p-6 ${palette.cardBorder} ${palette.card}`} data-visible={visible} style={{ ["--delay" as string]: `${110 + i * 70}ms` }}>
                 <h3 className={`text-lg font-semibold ${palette.heading}`}>{p.title}</h3>
-                <p className={`mt-5 text-[0.98rem] leading-8 ${palette.muted}`}>{p.body}</p>
+                <p className={`mt-4 text-sm leading-7 ${palette.muted}`}>{p.body}</p>
               </article>
             ))}
           </div>
