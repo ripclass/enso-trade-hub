@@ -184,18 +184,21 @@ const Index = () => {
 
       <section ref={pageRef} className="relative z-10 mx-auto flex w-full max-w-6xl flex-col px-5 py-20 md:px-10">
         <div className="sticky top-4 z-30 mb-16 w-full">
-          <a href="#" className="mb-3 block text-sm font-semibold tracking-[0.18em] uppercase opacity-90">
-            Enso Intelligence
-          </a>
           <div className={`flex w-full items-center justify-between gap-4 rounded-full border px-6 py-3 backdrop-blur-md ${palette.capsule}`}>
-            <a href="#about" className="text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">About</a>
-            <a href="#products" className="text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Products</a>
-            <a href="#why-enso" className="text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Why Enso</a>
-            <a href="#team" className="text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Team</a>
-            <a href="#contact" className="text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Contact</a>
-            <button type="button" onClick={toggleTheme} className={`rounded-full border px-3 py-1 text-xs uppercase tracking-[0.2em] ${palette.toggleSurface} ${palette.toggle}`}>
-              {theme === "dark" ? "Night" : "Day"} mode
-            </button>
+            <a href="#" className="text-sm font-semibold tracking-[0.18em] uppercase opacity-90 whitespace-nowrap">
+              Enso Intelligence
+            </a>
+
+            <div className="ml-6 flex flex-1 items-center justify-end gap-6">
+              <a href="#about" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">About</a>
+              <a href="#products" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Products</a>
+              <a href="#why-enso" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Why Enso</a>
+              <a href="#team" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Team</a>
+              <a href="#contact" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Contact</a>
+              <button type="button" onClick={toggleTheme} className={`rounded-full border px-3 py-1 text-xs uppercase tracking-[0.2em] ${palette.toggleSurface} ${palette.toggle}`}>
+                {theme === "dark" ? "Night" : "Day"} mode
+              </button>
+            </div>
           </div>
         </div>
 
