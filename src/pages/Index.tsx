@@ -323,7 +323,7 @@ const Index = () => {
           <article className={`enso-card rounded-[28px] border p-7 sm:p-9 ${palette.cardBorder} ${palette.card}`} data-visible={visible} style={{ ["--delay" as string]: "180ms" }}>
             <h3 className={`text-xl font-semibold ${palette.heading}`}>Ripon — Founder & CEO, Enso Intelligence</h3>
             <p className={`mt-5 max-w-4xl text-[1.02rem] leading-8 ${palette.muted}`}>
-              Film maker, systems engineer, economist, and AI researcher. Built Enso Intelligence to democratize trade finance knowledge — the compliance infrastructure that $32 trillion in global trade depends on, made accessible to everyone.
+              Filmmaker, systems engineer, economist, and AI researcher building the infrastructure layer for global trade intelligence. He founded Enso Intelligence to make high-stakes trade compliance knowledge—critical to the $32 trillion global trade economy—accessible, explainable, and practical for every serious operator.
             </p>
           </article>
         </section>
