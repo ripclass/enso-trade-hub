@@ -183,13 +183,13 @@ const Index = () => {
       <div className="absolute inset-0 -z-10" style={{ background: palette.overlay }} />
 
       <section ref={pageRef} className="relative z-10 mx-auto flex w-full max-w-6xl flex-col px-5 py-20 md:px-10">
-        <div className={`sticky top-4 z-30 mb-14 flex w-full max-w-4xl flex-wrap items-start gap-2 rounded-full border px-3 py-2 backdrop-blur-md ${palette.capsule}`}>
-          <a href="#about" className="rounded-full border border-current/20 px-3 py-1 text-xs uppercase tracking-[0.2em]">About</a>
-          <a href="#products" className="rounded-full border border-current/20 px-3 py-1 text-xs uppercase tracking-[0.2em]">Products</a>
-          <a href="#why-enso" className="rounded-full border border-current/20 px-3 py-1 text-xs uppercase tracking-[0.2em]">Why Enso</a>
-          <a href="#team" className="rounded-full border border-current/20 px-3 py-1 text-xs uppercase tracking-[0.2em]">Team</a>
-          <a href="#contact" className="rounded-full border border-current/20 px-3 py-1 text-xs uppercase tracking-[0.2em]">Contact</a>
-          <button type="button" onClick={toggleTheme} className={`rounded-full border px-3 py-1 text-xs uppercase tracking-[0.2em] ${palette.toggleSurface} ${palette.toggle}`}>
+        <div className={`sticky top-4 z-30 mb-16 flex w-full max-w-5xl flex-wrap items-center justify-center gap-x-6 gap-y-2 rounded-full border px-6 py-3 backdrop-blur-md md:justify-end ${palette.capsule}`}>
+          <a href="#about" className="px-1 text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">About</a>
+          <a href="#products" className="px-1 text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Products</a>
+          <a href="#why-enso" className="px-1 text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Why Enso</a>
+          <a href="#team" className="px-1 text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Team</a>
+          <a href="#contact" className="px-1 text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Contact</a>
+          <button type="button" onClick={toggleTheme} className={`ml-2 rounded-full border px-3 py-1 text-xs uppercase tracking-[0.2em] ${palette.toggleSurface} ${palette.toggle}`}>
             {theme === "dark" ? "Night" : "Day"} mode
           </button>
         </div>
@@ -197,7 +197,7 @@ const Index = () => {
         <header className="mb-20">
           <p className={`text-xs uppercase tracking-[0.35em] ${palette.muted}`}>Infrastructure for Global Trade Intelligence</p>
           <h1 className={`mt-4 max-w-4xl text-3xl font-semibold leading-tight sm:text-5xl ${palette.heading}`}>Enso Intelligence</h1>
-          <p className={`mt-6 max-w-3xl text-sm leading-relaxed sm:text-lg ${palette.muted}`}>
+          <p className={`mt-7 max-w-3xl text-base leading-8 sm:text-[1.15rem] sm:leading-9 ${palette.muted}`}>
             We build AI-powered compliance tools and rules infrastructure that give SMEs and trade professionals the same capabilities as the world's largest banks — at a fraction of the cost.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -214,9 +214,9 @@ const Index = () => {
           <SectionHeader label="Why We Exist" title="Access to trade intelligence should not be gated by enterprise budgets" palette={palette} />
           <div className={`enso-card rounded-[28px] border p-7 sm:p-9 ${palette.cardBorder} ${palette.card}`} data-visible={visible} style={{ ["--delay" as string]: "40ms" }}>
             <div className="grid gap-6 md:grid-cols-3">
-              <p className={palette.muted}>Trade finance runs the world. $32 trillion in annual global trade depends on Letters of Credit, customs compliance, sanctions screening, and hundreds of international rules most people have never heard of.</p>
-              <p className={palette.muted}>For decades, access to this knowledge has been locked behind expensive consultants, proprietary bank systems, and enterprise software priced out of reach for the businesses that need it most.</p>
-              <p className={palette.muted}>Enso Intelligence exists to change that. We build the tools, rules, and intelligence that let any exporter, importer, freight forwarder, or compliance team operate with confidence — regardless of their size or budget.</p>
+              <p className={`text-[1.02rem] leading-8 ${palette.muted}`}>Trade finance runs the world. $32 trillion in annual global trade depends on Letters of Credit, customs compliance, sanctions screening, and hundreds of international rules most people have never heard of.</p>
+              <p className={`text-[1.02rem] leading-8 ${palette.muted}`}>For decades, access to this knowledge has been locked behind expensive consultants, proprietary bank systems, and enterprise software priced out of reach for the businesses that need it most.</p>
+              <p className={`text-[1.02rem] leading-8 ${palette.muted}`}>Enso Intelligence exists to change that. We build the tools, rules, and intelligence that let any exporter, importer, freight forwarder, or compliance team operate with confidence — regardless of their size or budget.</p>
             </div>
           </div>
         </section>
@@ -234,7 +234,7 @@ const Index = () => {
                 <span className={`inline-flex rounded-full border px-3 py-1 text-[10px] uppercase tracking-[0.3em] ${palette.cardBorder} ${palette.muted}`}>{p.badge}</span>
                 <h3 className={`mt-4 text-xl font-semibold ${palette.heading}`}>{p.name}</h3>
                 <p className={`mt-1 text-sm ${palette.muted}`}>{p.title}</p>
-                <p className={`mt-4 text-sm leading-relaxed ${palette.muted}`}>{p.description}</p>
+                <p className={`mt-5 text-[0.98rem] leading-8 ${palette.muted}`}>{p.description}</p>
                 <div className="mt-6 flex items-center justify-between">
                   <span className={`text-xs uppercase tracking-[0.25em] ${palette.muted}`}>{p.statLabel}: <b className={palette.heading}>{p.statValue}</b></span>
                   {p.href && (
@@ -254,7 +254,7 @@ const Index = () => {
             {pillars.map((p, i) => (
               <article key={p.title} className={`enso-card rounded-[28px] border p-6 ${palette.cardBorder} ${palette.card}`} data-visible={visible} style={{ ["--delay" as string]: `${110 + i * 70}ms` }}>
                 <h3 className={`text-lg font-semibold ${palette.heading}`}>{p.title}</h3>
-                <p className={`mt-4 text-sm leading-relaxed ${palette.muted}`}>{p.body}</p>
+                <p className={`mt-5 text-[0.98rem] leading-8 ${palette.muted}`}>{p.body}</p>
               </article>
             ))}
           </div>
@@ -264,7 +264,7 @@ const Index = () => {
           <SectionHeader label="Who We Are" title="Founder-led, research-driven, execution-focused" palette={palette} />
           <article className={`enso-card rounded-[28px] border p-7 sm:p-9 ${palette.cardBorder} ${palette.card}`} data-visible={visible} style={{ ["--delay" as string]: "180ms" }}>
             <h3 className={`text-xl font-semibold ${palette.heading}`}>Ripon — Founder & CEO, Enso Intelligence</h3>
-            <p className={`mt-4 max-w-4xl text-sm leading-relaxed ${palette.muted}`}>
+            <p className={`mt-5 max-w-4xl text-[1.02rem] leading-8 ${palette.muted}`}>
               Systems engineer, economist, and AI researcher with degrees from universities in Australia, Sweden, and the UK. Built Enso Intelligence to democratize trade finance knowledge — the compliance infrastructure that $32 trillion in global trade depends on, made accessible to everyone.
             </p>
           </article>
@@ -296,7 +296,7 @@ const Index = () => {
         </section>
 
         <footer className="border-t border-dashed border-current/20 pt-7">
-          <p className={`text-xs uppercase tracking-[0.28em] ${palette.muted}`}>Built in Bangladesh. For the world.</p>
+          <p className={`text-xs uppercase tracking-[0.28em] ${palette.muted}`}>Built for the world, with trade at its core.</p>
         </footer>
       </section>
     </div>
