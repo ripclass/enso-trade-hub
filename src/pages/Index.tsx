@@ -183,19 +183,13 @@ const Index = () => {
       />
       <div className="absolute inset-0 -z-10" style={{ background: palette.overlay }} />
 
-      <section ref={pageRef} className="relative z-10 mx-auto flex w-full max-w-6xl flex-col px-5 py-20 md:px-10">
-        <div className="sticky top-4 z-30 mb-16 w-full">
-          <div className={`flex w-full items-center justify-between gap-4 rounded-full border px-6 py-3 backdrop-blur-md ${palette.capsule}`}>
-            <a href="#" className="text-sm font-semibold tracking-[0.18em] uppercase opacity-90 whitespace-nowrap">
-              Enso Intelligence
-            </a>
-
-            <div className="ml-6 flex flex-1 items-center justify-end gap-6">
-              <a href="#about" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">About</a>
-              <a href="#products" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Products</a>
-              <a href="#why-enso" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Why Enso</a>
-              <a href="#team" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Team</a>
-              <a href="#contact" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Contact</a>
+      <section ref={pageRef} className="relative z-10 mx-auto flex w-full max-w-6xl flex-col px-4 py-14 sm:px-5 sm:py-16 md:py-20 md:px-8 lg:px-10">
+        <div className="sticky top-3 z-30 mb-10 w-full sm:mb-12 md:top-4 md:mb-16">
+          <div className={`rounded-2xl border px-3 py-2 backdrop-blur-md sm:rounded-full sm:px-5 sm:py-3 ${palette.capsule}`}>
+            <div className="flex items-center justify-between gap-2">
+              <a href="#" className="text-[11px] font-semibold tracking-[0.14em] uppercase opacity-90 whitespace-nowrap sm:text-sm sm:tracking-[0.18em]">
+                Enso Intelligence
+              </a>
               <button
                 type="button"
                 onClick={toggleTheme}
@@ -205,19 +199,27 @@ const Index = () => {
                 {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
               </button>
             </div>
+
+            <div className="mt-2 grid grid-cols-3 gap-x-3 gap-y-2 text-right sm:mt-0 sm:ml-6 sm:flex sm:flex-1 sm:items-center sm:justify-end sm:gap-6">
+              <a href="#about" className="text-[10px] uppercase tracking-[0.22em] hover:opacity-100 opacity-80 sm:text-xs sm:tracking-[0.35em]">About</a>
+              <a href="#products" className="text-[10px] uppercase tracking-[0.22em] hover:opacity-100 opacity-80 sm:text-xs sm:tracking-[0.35em]">Products</a>
+              <a href="#why-enso" className="text-[10px] uppercase tracking-[0.22em] hover:opacity-100 opacity-80 sm:text-xs sm:tracking-[0.35em]">Why Enso</a>
+              <a href="#team" className="text-[10px] uppercase tracking-[0.22em] hover:opacity-100 opacity-80 sm:text-xs sm:tracking-[0.35em]">Team</a>
+              <a href="#contact" className="text-[10px] uppercase tracking-[0.22em] hover:opacity-100 opacity-80 sm:text-xs sm:tracking-[0.35em]">Contact</a>
+            </div>
           </div>
         </div>
 
-        <header className="mb-20">
+        <header className="mb-14 sm:mb-16 md:mb-20">
           <p className={`text-xs uppercase tracking-[0.35em] ${palette.muted}`}>Infrastructure for Global Trade Intelligence</p>
-          <h1 className={`mt-4 max-w-3xl text-3xl font-semibold leading-[1.15] sm:text-5xl ${palette.heading}`}>
+          <h1 className={`mt-4 max-w-3xl text-[1.85rem] font-semibold leading-[1.15] sm:text-5xl ${palette.heading}`}>
             Trade compliance intelligence
             <br />
             for teams that move
             <br />
             global commerce.
           </h1>
-          <p className={`mt-7 max-w-3xl text-base leading-8 sm:text-[1.15rem] sm:leading-9 ${palette.muted}`}>
+          <p className={`mt-6 max-w-3xl text-[0.98rem] leading-7 sm:mt-7 sm:text-[1.1rem] sm:leading-9 ${palette.muted}`}>
             Enso Intelligence builds AI-powered compliance systems and rules infrastructure so SMEs and trade professionals can operate with the speed, confidence, and control usually reserved for large institutions.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -230,7 +232,7 @@ const Index = () => {
           </div>
         </header>
 
-        <section id="about" className="mb-20">
+        <section id="about" className="mb-14 sm:mb-16 md:mb-20">
           <SectionHeader label="Why We Exist" title="Trade knowledge is critical. Access to it should be universal." palette={palette} />
           <div className="grid gap-5 md:grid-cols-3">
             <article className={`enso-card rounded-[28px] border p-6 ${palette.cardBorder} ${palette.card}`} data-visible={visible} style={{ ["--delay" as string]: "40ms" }}>
@@ -254,7 +256,7 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="products" className="mb-20">
+        <section id="products" className="mb-14 sm:mb-16 md:mb-20">
           <SectionHeader label="What We Build" title="Product layer + rules layer" palette={palette} />
           <div className="grid gap-5 md:grid-cols-2">
             {products.map((p, i) => (
@@ -281,7 +283,7 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="why-enso" className="mb-20">
+        <section id="why-enso" className="mb-14 sm:mb-16 md:mb-20">
           <SectionHeader label="A Different Kind of Trade Tech" title="Clear rules. Real-world inputs. SME-first economics." palette={palette} />
           <div className="grid gap-5 md:grid-cols-3">
             {pillars.map((p, i) => (
@@ -293,7 +295,7 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="team" className="mb-20">
+        <section id="team" className="mb-14 sm:mb-16 md:mb-20">
           <SectionHeader label="Who We Are" title="Founder-led, research-driven, execution-focused" palette={palette} />
           <article className={`enso-card rounded-[28px] border p-7 sm:p-9 ${palette.cardBorder} ${palette.card}`} data-visible={visible} style={{ ["--delay" as string]: "180ms" }}>
             <h3 className={`text-xl font-semibold ${palette.heading}`}>Ripon — Founder & CEO, Enso Intelligence</h3>
@@ -316,7 +318,7 @@ const Index = () => {
             </article>
             <article className={`enso-card rounded-[28px] border p-6 ${palette.cardBorder} ${palette.card}`} data-visible={visible} style={{ ["--delay" as string]: "280ms" }}>
               <p className={`text-xs uppercase tracking-[0.28em] ${palette.muted}`}>Quick stats</p>
-              <div className="mt-4 grid grid-cols-3 gap-3">
+              <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
                 {metrics.map((m) => (
                   <div key={m.label} className={`rounded-2xl border p-3 ${palette.metric}`}>
                     <p className="text-[10px] uppercase tracking-[0.2em] opacity-70">{m.label}</p>
