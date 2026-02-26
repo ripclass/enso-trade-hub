@@ -62,7 +62,7 @@ const Products = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.55 }}
-          className="mb-8"
+          className="mb-8 text-center"
         >
           <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
             What We Build
@@ -82,8 +82,8 @@ const Products = () => {
               transition={{ duration: 0.45, delay: i * 0.07 }}
               className="bento-card bento-card-hover p-6 md:p-7"
             >
-              <div className="mb-4 flex items-start justify-between gap-3">
-                <div>
+              <div className="mb-4 flex items-start justify-between gap-3 text-center">
+                <div className="w-full">
                   <span
                     className={`mb-3 inline-flex rounded-full border px-2.5 py-1 text-[11px] font-medium ${
                       badgeStyles[p.badgeVariant]
@@ -107,7 +107,7 @@ const Products = () => {
                 )}
               </div>
 
-              <p className="text-sm leading-relaxed text-muted-foreground">
+              <p className="text-center text-sm leading-relaxed text-muted-foreground">
                 {p.description}
               </p>
             </motion.article>

@@ -11,11 +11,11 @@ const Mission = () => {
           transition={{ duration: 0.55 }}
           className="bento-card p-8 md:p-10"
         >
-          <p className="mb-3 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+          <p className="mb-3 text-center text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
             Why We Exist
           </p>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 text-center md:grid-cols-3">
             <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
               Trade finance runs the world. $32 trillion in annual global trade
               depends on Letters of Credit, customs compliance, sanctions

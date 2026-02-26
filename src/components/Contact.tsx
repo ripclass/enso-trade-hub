@@ -69,7 +69,7 @@ const Contact = () => {
           className="mx-auto max-w-5xl"
         >
           <div className="grid gap-4 md:grid-cols-5">
-            <div className="bento-card p-6 md:col-span-2">
+            <div className="bento-card p-6 text-center md:col-span-2">
               <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
                 Get in Touch
               </p>

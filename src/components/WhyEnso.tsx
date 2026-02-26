@@ -28,7 +28,7 @@ const WhyEnso = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.55 }}
-          className="mb-8"
+          className="mb-8 text-center"
         >
           <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
             A Different Kind of Trade Tech
@@ -46,9 +46,9 @@ const WhyEnso = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.45, delay: i * 0.08 }}
-              className="bento-card bento-card-hover p-6"
+              className="bento-card bento-card-hover p-6 text-center"
             >
-              <p.icon size={22} className="mb-4" />
+              <p.icon size={22} className="mx-auto mb-4" />
               <h3 className="mb-3 text-lg font-semibold">{p.title}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">{p.body}</p>
             </motion.article>
