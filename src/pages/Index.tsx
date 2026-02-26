@@ -183,17 +183,17 @@ const Index = () => {
       <div className="absolute inset-0 -z-10" style={{ background: palette.overlay }} />
 
       <section ref={pageRef} className="relative z-10 mx-auto flex w-full max-w-6xl flex-col px-5 py-20 md:px-10">
-        <div className="sticky top-4 z-30 mb-16 flex w-full items-center justify-between gap-4">
-          <a href="#" className="text-sm font-semibold tracking-[0.18em] uppercase opacity-90">
+        <div className="sticky top-4 z-30 mb-16 w-full">
+          <a href="#" className="mb-3 block text-sm font-semibold tracking-[0.18em] uppercase opacity-90">
             Enso Intelligence
           </a>
-          <div className={`flex w-full max-w-4xl flex-wrap items-center justify-center gap-x-6 gap-y-2 rounded-full border px-6 py-3 backdrop-blur-md md:justify-end ${palette.capsule}`}>
-            <a href="#about" className="px-1 text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">About</a>
-            <a href="#products" className="px-1 text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Products</a>
-            <a href="#why-enso" className="px-1 text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Why Enso</a>
-            <a href="#team" className="px-1 text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Team</a>
-            <a href="#contact" className="px-1 text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Contact</a>
-            <button type="button" onClick={toggleTheme} className={`ml-2 rounded-full border px-3 py-1 text-xs uppercase tracking-[0.2em] ${palette.toggleSurface} ${palette.toggle}`}>
+          <div className={`flex w-full items-center justify-between gap-4 rounded-full border px-6 py-3 backdrop-blur-md ${palette.capsule}`}>
+            <a href="#about" className="text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">About</a>
+            <a href="#products" className="text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Products</a>
+            <a href="#why-enso" className="text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Why Enso</a>
+            <a href="#team" className="text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Team</a>
+            <a href="#contact" className="text-xs uppercase tracking-[0.24em] hover:opacity-100 opacity-80">Contact</a>
+            <button type="button" onClick={toggleTheme} className={`rounded-full border px-3 py-1 text-xs uppercase tracking-[0.2em] ${palette.toggleSurface} ${palette.toggle}`}>
               {theme === "dark" ? "Night" : "Day"} mode
             </button>
           </div>
@@ -211,8 +211,8 @@ const Index = () => {
             <a href="https://trdrhub.com" target="_blank" rel="noreferrer" className={`rounded-full border px-5 py-2.5 text-sm font-medium transition ${palette.button}`}>
               Visit TRDR Hub
             </a>
-            <a href="#contact" className={`rounded-full border px-5 py-2.5 text-sm font-medium transition ${palette.button}`}>
-              Book a Demo
+            <a href="https://rulhub.com" target="_blank" rel="noreferrer" className={`rounded-full border px-5 py-2.5 text-sm font-medium transition ${palette.button}`}>
+              Explore RulHub
             </a>
           </div>
         </header>
