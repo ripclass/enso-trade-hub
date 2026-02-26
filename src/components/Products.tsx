@@ -47,78 +47,70 @@ const products: Product[] = [
   },
 ];
 
-const badgeStyles: Record<string, string> = {
-  live: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-  coming: "bg-primary/10 text-primary border-primary/20",
-  dev: "bg-muted text-muted-foreground border-border",
+const badgeStyles: Record<Product["badgeVariant"], string> = {
+  live: "border-foreground/30 bg-foreground/10 text-foreground",
+  coming: "border-border bg-secondary text-secondary-foreground",
+  dev: "border-border bg-muted text-muted-foreground",
 };
 
 const Products = () => {
   return (
-    <section id="products" className="py-24 md:py-32">
+    <section id="products" className="py-16 md:py-24">
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.55 }}
+          className="mb-8"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-gradient-gold inline-block">
+          <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
             What We Build
+          </p>
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+            Product Layer + Rules Layer
           </h2>
-          <div className="w-12 h-0.5 bg-primary/40 mb-14" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid gap-4 md:grid-cols-2">
           {products.map((p, i) => (
-            <motion.div
+            <motion.article
               key={p.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative rounded-lg border border-border bg-card p-8 hover:border-primary/30 transition-colors glow-gold hover:glow-gold"
+              transition={{ duration: 0.45, delay: i * 0.07 }}
+              className="bento-card bento-card-hover p-6 md:p-7"
             >
-              <div className="flex items-start justify-between mb-4">
+              <div className="mb-4 flex items-start justify-between gap-3">
                 <div>
                   <span
-                    className={`inline-block text-xs font-medium px-2.5 py-0.5 rounded-full border mb-3 ${
+                    className={`mb-3 inline-flex rounded-full border px-2.5 py-1 text-[11px] font-medium ${
                       badgeStyles[p.badgeVariant]
                     }`}
                   >
                     {p.badge}
                   </span>
-                  <h3 className="text-xl font-bold text-foreground">{p.name}</h3>
-                  <p className="text-sm text-primary font-medium">{p.tagline}</p>
+                  <h3 className="text-xl font-bold">{p.name}</h3>
+                  <p className="text-sm text-muted-foreground">{p.tagline}</p>
                 </div>
                 {p.link && (
                   <a
                     href={p.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors mt-1"
+                    className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border transition-all hover:border-foreground/30"
                     aria-label={`Visit ${p.name}`}
                   >
-                    <ArrowUpRight size={20} />
+                    <ArrowUpRight size={16} />
                   </a>
                 )}
               </div>
 
-              <p className="text-muted-foreground leading-relaxed text-sm">
+              <p className="text-sm leading-relaxed text-muted-foreground">
                 {p.description}
               </p>
-
-              {p.link && (
-                <a
-                  href={p.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-5 text-sm font-medium text-primary hover:underline"
-                >
-                  {p.link.replace("https://", "")} →
-                </a>
-              )}
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>

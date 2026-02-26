@@ -7,49 +7,38 @@ const footerLinks = [
 ];
 
 const Footer = () => {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="border-t border-border py-12">
+    <footer className="border-t border-border/70 py-10">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-8 items-start">
-          {/* Left */}
+        <div className="grid gap-8 md:grid-cols-3 md:items-center">
           <div>
-            <p className="font-bold text-foreground">Enso Intelligence</p>
-            <p className="text-sm text-muted-foreground mt-1">
-              Infrastructure for Global Trade
-            </p>
+            <p className="font-bold">Enso Intelligence</p>
+            <p className="mt-1 text-sm text-muted-foreground">Infrastructure for Global Trade</p>
           </div>
 
-          {/* Center */}
-          <div className="flex flex-wrap gap-x-6 gap-y-2 md:justify-center">
+          <div className="flex flex-wrap gap-x-5 gap-y-2 md:justify-center">
             {footerLinks.map((l) => (
               <a
                 key={l.label}
                 href={l.href}
-                {...(l.external
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                {...(l.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 {l.label}
               </a>
             ))}
           </div>
 
-          {/* Right */}
-          <div className="md:text-right">
-            <p className="text-sm text-muted-foreground">
-              Built in Bangladesh. For the world.
-            </p>
+          <div className="text-sm text-muted-foreground md:text-right">
+            Built in Bangladesh. For the world.
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-border text-center">
-          <p className="text-xs text-muted-foreground">
-            © 2025 Enso Intelligence. All rights reserved.
-          </p>
-          <p className="text-xs text-muted-foreground mt-1">
-            TRDR Hub and RulHub are products of Enso Intelligence.
-          </p>
+        <div className="mt-8 border-t border-border/60 pt-5 text-center text-xs text-muted-foreground">
+          <p>© {year} Enso Intelligence. All rights reserved.</p>
+          <p className="mt-1">TRDR Hub and RulHub are products of Enso Intelligence.</p>
         </div>
       </div>
     </footer>

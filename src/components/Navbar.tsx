@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { Menu, Moon, Sun, X } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -12,81 +12,111 @@ const navLinks = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [dark, setDark] = useState<boolean>(true);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const stored = localStorage.getItem("enso-theme");
+    const isDark = stored ? stored === "dark" : true;
+    setDark(isDark);
+    document.documentElement.classList.toggle("dark", isDark);
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 18);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const toggleTheme = () => {
+    const next = !dark;
+    setDark(next);
+    localStorage.setItem("enso-theme", next ? "dark" : "light");
+    document.documentElement.classList.toggle("dark", next);
+  };
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border"
+          ? "border-b border-border/70 bg-background/90 backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#" className="text-xl font-bold tracking-tight text-foreground">
+        <a href="#" className="text-lg font-bold tracking-tight text-foreground">
           Enso Intelligence
         </a>
 
-        {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden items-center gap-7 md:flex">
           {navLinks.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               {l.label}
             </a>
           ))}
-          <a
-            href="#products"
-            className="text-sm font-medium px-5 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="bento-card inline-flex h-9 w-9 items-center justify-center bento-card-hover"
           >
-            Explore Our Products
+            {dark ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
+
+          <a
+            href="#contact"
+            className="rounded-xl border border-foreground bg-foreground px-4 py-2 text-sm font-medium text-background transition-all hover:opacity-90"
+          >
+            Book a Demo
           </a>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          className="md:hidden text-foreground"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="bento-card inline-flex h-9 w-9 items-center justify-center"
+          >
+            {dark ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
+          <button
+            className="bento-card inline-flex h-9 w-9 items-center justify-center"
+            onClick={() => setMobileOpen((p) => !p)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
+            className="border-b border-border/70 bg-background/95 backdrop-blur-xl md:hidden"
           >
-            <div className="flex flex-col gap-4 px-6 py-6">
+            <div className="container mx-auto flex flex-col gap-4 px-6 py-5">
               {navLinks.map((l) => (
                 <a
                   key={l.href}
                   href={l.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                   onClick={() => setMobileOpen(false)}
                 >
                   {l.label}
                 </a>
               ))}
               <a
-                href="#products"
-                className="text-sm font-medium px-5 py-2.5 rounded-md bg-primary text-primary-foreground text-center"
+                href="#contact"
+                className="rounded-xl border border-foreground bg-foreground px-4 py-2 text-center text-sm font-medium text-background"
                 onClick={() => setMobileOpen(false)}
               >
-                Explore Our Products
+                Book a Demo
               </a>
             </div>
           </motion.div>

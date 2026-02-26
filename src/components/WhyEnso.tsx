@@ -21,37 +21,37 @@ const pillars = [
 
 const WhyEnso = () => {
   return (
-    <section className="py-24 md:py-32 bg-surface-elevated">
+    <section className="bg-surface-elevated py-16 md:py-24">
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.55 }}
+          className="mb-8"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-gradient-gold inline-block">
+          <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
             A Different Kind of Trade Tech
+          </p>
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+            Built for explainability, speed, and access
           </h2>
-          <div className="w-12 h-0.5 bg-primary/40 mb-14" />
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid gap-4 md:grid-cols-3">
           {pillars.map((p, i) => (
-            <motion.div
+            <motion.article
               key={p.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5, delay: i * 0.12 }}
+              transition={{ duration: 0.45, delay: i * 0.08 }}
+              className="bento-card bento-card-hover p-6"
             >
-              <p.icon size={28} className="text-primary mb-5" />
-              <h3 className="text-lg font-semibold text-foreground mb-3">
-                {p.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed text-sm">
-                {p.body}
-              </p>
-            </motion.div>
+              <p.icon size={22} className="mb-4" />
+              <h3 className="mb-3 text-lg font-semibold">{p.title}</h3>
+              <p className="text-sm leading-relaxed text-muted-foreground">{p.body}</p>
+            </motion.article>
           ))}
         </div>
       </div>

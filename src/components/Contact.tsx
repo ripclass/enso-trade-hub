@@ -25,8 +25,7 @@ const Contact = () => {
     const e: Record<string, string> = {};
     if (!form.name.trim()) e.name = "Name is required";
     if (!form.email.trim()) e.email = "Email is required";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
-      e.email = "Invalid email";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = "Invalid email";
     if (!form.message.trim()) e.message = "Message is required";
     if (!form.interest) e.interest = "Please select an option";
     setErrors(e);
@@ -36,175 +35,153 @@ const Contact = () => {
   const handleSubmit = (ev: FormEvent) => {
     ev.preventDefault();
     if (!validate()) return;
-    // TODO: Wire to Formspree or similar service
-    // Example: POST to https://formspree.io/f/YOUR_FORM_ID with form data
+
+    const subject = encodeURIComponent(
+      `[Enso Website] ${form.interest} inquiry from ${form.name}`
+    );
+    const body = encodeURIComponent(
+      [
+        `Name: ${form.name}`,
+        `Email: ${form.email}`,
+        `Company: ${form.company || "N/A"}`,
+        `Interest: ${form.interest}`,
+        "",
+        "Message:",
+        form.message,
+      ].join("\n")
+    );
+
+    window.location.href = `mailto:hello@ensointelligence.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
   const inputClasses =
-    "w-full rounded-md border border-border bg-secondary px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary/50 transition-colors";
+    "w-full rounded-xl border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground transition-all focus:outline-none focus:ring-2 focus:ring-foreground/20";
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-surface-elevated">
+    <section id="contact" className="bg-surface-elevated py-16 md:py-24">
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.55 }}
+          className="mx-auto max-w-5xl"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-gradient-gold inline-block">
-            Get in Touch
-          </h2>
-          <div className="w-12 h-0.5 bg-primary/40 mb-14" />
-        </motion.div>
+          <div className="grid gap-4 md:grid-cols-5">
+            <div className="bento-card p-6 md:col-span-2">
+              <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                Get in Touch
+              </p>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-          {/* Left — contact info */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5 }}
-            className="space-y-6"
-          >
-            <div className="flex items-start gap-3">
-              <Mail size={18} className="text-primary mt-1 shrink-0" />
-              <div>
-                <p className="text-sm text-muted-foreground mb-1">General</p>
-                <a
-                  href="mailto:hello@ensointelligence.com"
-                  className="text-foreground hover:text-primary transition-colors text-sm"
-                >
-                  hello@ensointelligence.com
-                </a>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <Mail size={18} className="text-primary mt-1 shrink-0" />
-              <div>
-                <p className="text-sm text-muted-foreground mb-1">Partnerships</p>
-                <a
-                  href="mailto:partnerships@ensointelligence.com"
-                  className="text-foreground hover:text-primary transition-colors text-sm"
-                >
-                  partnerships@ensointelligence.com
-                </a>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <Mail size={18} className="text-primary mt-1 shrink-0" />
-              <div>
-                <p className="text-sm text-muted-foreground mb-1">Press</p>
-                <a
-                  href="mailto:press@ensointelligence.com"
-                  className="text-foreground hover:text-primary transition-colors text-sm"
-                >
-                  press@ensointelligence.com
-                </a>
-              </div>
-            </div>
-          </motion.div>
+              {["General", "Partnerships", "Press"].map((label, i) => {
+                const mail =
+                  i === 0
+                    ? "hello@ensointelligence.com"
+                    : i === 1
+                      ? "partnerships@ensointelligence.com"
+                      : "press@ensointelligence.com";
 
-          {/* Right — form */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            {submitted ? (
-              <div className="rounded-lg border border-border bg-card p-8 text-center">
-                <p className="text-foreground font-medium">Message sent.</p>
-                <p className="text-sm text-muted-foreground mt-2">
-                  We'll get back to you shortly.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4" noValidate>
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Name"
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className={inputClasses}
-                  />
-                  {errors.name && (
-                    <p className="text-xs text-destructive mt-1">{errors.name}</p>
-                  )}
+                return (
+                  <div key={label} className="mb-4 flex items-start gap-3 last:mb-0">
+                    <Mail size={16} className="mt-1" />
+                    <div>
+                      <p className="text-xs text-muted-foreground">{label}</p>
+                      <a
+                        href={`mailto:${mail}`}
+                        className="text-sm transition-colors hover:text-foreground"
+                      >
+                        {mail}
+                      </a>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="bento-card p-6 md:col-span-3">
+              {submitted ? (
+                <div className="rounded-xl border border-border bg-card p-6 text-center">
+                  <p className="font-medium">Message sent.</p>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Your email app should open with a pre-filled draft.
+                  </p>
                 </div>
-                <div>
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className={inputClasses}
-                  />
-                  {errors.email && (
-                    <p className="text-xs text-destructive mt-1">{errors.email}</p>
-                  )}
-                </div>
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Company (optional)"
-                    value={form.company}
-                    onChange={(e) =>
-                      setForm({ ...form, company: e.target.value })
-                    }
-                    className={inputClasses}
-                  />
-                </div>
-                <div>
-                  <select
-                    value={form.interest}
-                    onChange={(e) =>
-                      setForm({ ...form, interest: e.target.value })
-                    }
-                    className={inputClasses}
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div>
+                      <input
+                        type="text"
+                        placeholder="Name"
+                        value={form.name}
+                        onChange={(e) => setForm({ ...form, name: e.target.value })}
+                        className={inputClasses}
+                      />
+                      {errors.name && <p className="mt-1 text-xs text-destructive">{errors.name}</p>}
+                    </div>
+                    <div>
+                      <input
+                        type="email"
+                        placeholder="Email"
+                        value={form.email}
+                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        className={inputClasses}
+                      />
+                      {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}
+                    </div>
+                  </div>
+
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <input
+                      type="text"
+                      placeholder="Company (optional)"
+                      value={form.company}
+                      onChange={(e) => setForm({ ...form, company: e.target.value })}
+                      className={inputClasses}
+                    />
+                    <div>
+                      <select
+                        value={form.interest}
+                        onChange={(e) => setForm({ ...form, interest: e.target.value })}
+                        className={inputClasses}
+                      >
+                        <option value="">I'm interested in…</option>
+                        {interestOptions.map((o) => (
+                          <option key={o} value={o}>
+                            {o}
+                          </option>
+                        ))}
+                      </select>
+                      {errors.interest && (
+                        <p className="mt-1 text-xs text-destructive">{errors.interest}</p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div>
+                    <textarea
+                      placeholder="Message"
+                      rows={4}
+                      value={form.message}
+                      onChange={(e) => setForm({ ...form, message: e.target.value })}
+                      className={`${inputClasses} resize-none`}
+                    />
+                    {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="inline-flex items-center gap-2 rounded-xl border border-foreground bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-all hover:opacity-90"
                   >
-                    <option value="">I'm interested in…</option>
-                    {interestOptions.map((o) => (
-                      <option key={o} value={o}>
-                        {o}
-                      </option>
-                    ))}
-                  </select>
-                  {errors.interest && (
-                    <p className="text-xs text-destructive mt-1">
-                      {errors.interest}
-                    </p>
-                  )}
-                </div>
-                <div>
-                  <textarea
-                    placeholder="Message"
-                    rows={4}
-                    value={form.message}
-                    onChange={(e) =>
-                      setForm({ ...form, message: e.target.value })
-                    }
-                    className={inputClasses + " resize-none"}
-                  />
-                  {errors.message && (
-                    <p className="text-xs text-destructive mt-1">
-                      {errors.message}
-                    </p>
-                  )}
-                </div>
-                <button
-                  type="submit"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-md bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/90 transition-colors"
-                >
-                  <Send size={14} />
-                  Send Message
-                </button>
-              </form>
-            )}
-          </motion.div>
-        </div>
+                    <Send size={14} />
+                    Send Message
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

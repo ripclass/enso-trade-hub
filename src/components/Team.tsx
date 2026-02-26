@@ -1,62 +1,46 @@
 import { motion } from "framer-motion";
-import { Linkedin, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 
 const Team = () => {
   return (
-    <section id="team" className="py-24 md:py-32">
+    <section id="team" className="py-16 md:py-24">
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-gradient-gold inline-block">
-            Who We Are
-          </h2>
-          <div className="w-12 h-0.5 bg-primary/40 mb-14" />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="max-w-xl mx-auto text-center"
+          transition={{ duration: 0.55 }}
+          className="mx-auto max-w-3xl"
         >
-          <div className="rounded-lg border border-border bg-card p-8 md:p-10">
-            {/* Add founder photo here when available — use circular crop, professional but not stuffy */}
-            <div className="w-20 h-20 rounded-full bg-secondary mx-auto mb-6 flex items-center justify-center text-2xl font-bold text-primary">
+          <div className="bento-card p-8 text-center md:p-10">
+            <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              Who We Are
+            </p>
+
+            <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full border border-border bg-secondary text-2xl font-bold">
               R
             </div>
 
-            <h3 className="text-xl font-bold text-foreground">Ripon</h3>
-            <p className="text-sm text-primary font-medium mt-1">
+            <h3 className="text-xl font-bold">Ripon</h3>
+            <p className="mt-1 text-sm text-muted-foreground">
               Founder & CEO, Enso Intelligence
             </p>
 
-            <p className="text-muted-foreground mt-5 leading-relaxed text-sm">
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-muted-foreground">
               Systems engineer, economist, and AI researcher with degrees from
               universities in Australia, Sweden, and the UK. Built Enso
-              Intelligence to democratize trade finance knowledge — the compliance
-              infrastructure that $32 trillion in global trade depends on, made
-              accessible to everyone.
+              Intelligence to democratize trade finance knowledge — the
+              compliance infrastructure that $32 trillion in global trade depends
+              on, made accessible to everyone.
             </p>
 
-            <div className="flex items-center justify-center gap-4 mt-6">
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-primary transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={20} />
-              </a>
+            <div className="mt-6 flex items-center justify-center gap-4">
               <a
                 href="mailto:hello@ensointelligence.com"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border transition-all hover:-translate-y-0.5 hover:border-foreground/30"
                 aria-label="Email"
               >
-                <Mail size={20} />
+                <Mail size={18} />
               </a>
             </div>
           </div>
