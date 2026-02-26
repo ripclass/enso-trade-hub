@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { Moon, Sun } from "lucide-react";
 
 const STYLE_ID = "enso-bento-animations";
 
@@ -195,8 +196,13 @@ const Index = () => {
               <a href="#why-enso" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Why Enso</a>
               <a href="#team" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Team</a>
               <a href="#contact" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Contact</a>
-              <button type="button" onClick={toggleTheme} className={`rounded-full border px-3 py-1 text-xs uppercase tracking-[0.2em] ${palette.toggleSurface} ${palette.toggle}`}>
-                {theme === "dark" ? "Night" : "Day"} mode
+              <button
+                type="button"
+                onClick={toggleTheme}
+                aria-label="Toggle theme"
+                className={`inline-flex h-8 w-8 items-center justify-center rounded-full border ${palette.toggleSurface} ${palette.toggle}`}
+              >
+                {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
               </button>
             </div>
           </div>
@@ -204,8 +210,12 @@ const Index = () => {
 
         <header className="mb-20">
           <p className={`text-xs uppercase tracking-[0.35em] ${palette.muted}`}>Infrastructure for Global Trade Intelligence</p>
-          <h1 className={`mt-4 max-w-5xl text-3xl font-semibold leading-tight sm:text-5xl ${palette.heading}`}>
-            Trade compliance intelligence for teams that move global commerce.
+          <h1 className={`mt-4 max-w-3xl text-3xl font-semibold leading-[1.15] sm:text-5xl ${palette.heading}`}>
+            Trade compliance intelligence
+            <br />
+            for teams that move
+            <br />
+            global commerce.
           </h1>
           <p className={`mt-7 max-w-3xl text-base leading-8 sm:text-[1.15rem] sm:leading-9 ${palette.muted}`}>
             Enso Intelligence builds AI-powered compliance systems and rules infrastructure so SMEs and trade professionals can operate with the speed, confidence, and control usually reserved for large institutions.
