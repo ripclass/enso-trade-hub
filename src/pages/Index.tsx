@@ -187,12 +187,12 @@ const Index = () => {
       <section ref={pageRef} className="relative z-10 mx-auto flex w-full max-w-6xl flex-col px-4 py-14 sm:px-5 sm:py-16 md:py-20 md:px-8 lg:px-10">
         <div className="sticky top-3 z-30 mb-10 w-full sm:mb-12 md:top-4 md:mb-16">
           <div className={`rounded-2xl border px-3 py-2 backdrop-blur-md sm:px-5 sm:py-3 ${palette.capsule}`}>
-            <div className="flex items-center justify-between gap-2">
-              <a href="#" className="text-[11px] font-semibold tracking-[0.14em] uppercase opacity-90 whitespace-nowrap sm:text-sm sm:tracking-[0.18em]">
+            <div className="flex items-center justify-between gap-2 md:gap-4">
+              <a href="#" className="min-w-0 text-[10px] font-semibold tracking-[0.12em] uppercase opacity-90 whitespace-nowrap sm:text-sm sm:tracking-[0.18em]">
                 Enso Intelligence
               </a>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 shrink-0">
                 <button
                   type="button"
                   onClick={toggleTheme}
@@ -323,7 +323,7 @@ const Index = () => {
           <article className={`enso-card rounded-[28px] border p-7 sm:p-9 ${palette.cardBorder} ${palette.card}`} data-visible={visible} style={{ ["--delay" as string]: "180ms" }}>
             <h3 className={`text-xl font-semibold ${palette.heading}`}>Ripon — Founder & CEO, Enso Intelligence</h3>
             <p className={`mt-5 max-w-4xl text-[1.02rem] leading-8 ${palette.muted}`}>
-              Systems engineer, economist, and AI researcher with degrees from universities in Australia, Sweden, and the UK. Built Enso Intelligence to democratize trade finance knowledge — the compliance infrastructure that $32 trillion in global trade depends on, made accessible to everyone.
+              Film maker, systems engineer, economist, and AI researcher. Built Enso Intelligence to democratize trade finance knowledge — the compliance infrastructure that $32 trillion in global trade depends on, made accessible to everyone.
             </p>
           </article>
         </section>
@@ -334,9 +334,9 @@ const Index = () => {
             <article className={`enso-card rounded-[28px] border p-6 ${palette.cardBorder} ${palette.card}`} data-visible={visible} style={{ ["--delay" as string]: "220ms" }}>
               <p className={`text-xs uppercase tracking-[0.28em] ${palette.muted}`}>Emails</p>
               <div className="mt-4 space-y-2 text-sm">
-                <a href="mailto:hello@ensointelligence.com" className="block hover:underline">hello@ensointelligence.com</a>
-                <a href="mailto:partnerships@ensointelligence.com" className="block hover:underline">partnerships@ensointelligence.com</a>
-                <a href="mailto:press@ensointelligence.com" className="block hover:underline">press@ensointelligence.com</a>
+                <a href="mailto:hello@enso-intelligence.com" className="block hover:underline">hello@enso-intelligence.com</a>
+                <a href="mailto:partnerships@enso-intelligence.com" className="block hover:underline">partnerships@enso-intelligence.com</a>
+                <a href="mailto:press@enso-intelligence.com" className="block hover:underline">press@enso-intelligence.com</a>
               </div>
             </article>
             <article className={`enso-card rounded-[28px] border p-6 ${palette.cardBorder} ${palette.card}`} data-visible={visible} style={{ ["--delay" as string]: "280ms" }}>
