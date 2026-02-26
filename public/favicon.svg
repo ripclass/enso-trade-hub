@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Enso Intelligence">
+  <rect x="8" y="8" width="112" height="112" rx="24" fill="#0a0a0a"/>
+  <rect x="8" y="8" width="112" height="112" rx="24" fill="none" stroke="#e5e7eb" stroke-width="4"/>
+  <text x="64" y="74" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-weight="700" font-size="34" fill="#f3f4f6" letter-spacing="2">EI</text>
+</svg>
