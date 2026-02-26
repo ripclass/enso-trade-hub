@@ -187,17 +187,33 @@ const Index = () => {
       <section ref={pageRef} className="relative z-10 mx-auto flex w-full max-w-6xl flex-col px-4 py-14 sm:px-5 sm:py-16 md:py-20 md:px-8 lg:px-10">
         <div className="sticky top-3 z-30 mb-10 w-full sm:mb-12 md:top-4 md:mb-16">
           <div className={`rounded-2xl border px-3 py-2 backdrop-blur-md sm:px-5 sm:py-3 ${palette.capsule}`}>
-            <div className="flex items-center justify-between gap-2 md:gap-4">
-              <a href="#" className="min-w-0 max-w-[65%] truncate text-[10px] font-semibold tracking-[0.12em] uppercase opacity-90 whitespace-nowrap sm:max-w-none sm:text-sm sm:tracking-[0.18em]">
+            <div className="flex min-h-8 items-center justify-between gap-2 md:gap-4">
+              <a href="#" className="min-w-0 max-w-[65%] truncate text-[10px] font-semibold leading-none tracking-[0.12em] uppercase opacity-90 whitespace-nowrap sm:max-w-none sm:text-sm sm:tracking-[0.18em]">
                 Enso Intelligence
               </a>
 
-              <div className="flex items-center gap-2 shrink-0">
+              <div className="hidden md:ml-6 md:flex md:flex-1 md:items-center md:justify-end md:gap-6">
+                <a href="#about" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">About</a>
+                <a href="#products" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Products</a>
+                <a href="#why-enso" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Why Enso</a>
+                <a href="#team" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Team</a>
+                <a href="#contact" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Contact</a>
                 <button
                   type="button"
                   onClick={toggleTheme}
                   aria-label="Toggle theme"
-                  className={`inline-flex h-8 w-8 items-center justify-center rounded-full border md:hidden ${palette.toggleSurface} ${palette.toggle}`}
+                  className={`inline-flex h-8 w-8 items-center justify-center rounded-full border ${palette.toggleSurface} ${palette.toggle}`}
+                >
+                  {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
+                </button>
+              </div>
+
+              <div className="flex items-center gap-2 shrink-0 md:hidden">
+                <button
+                  type="button"
+                  onClick={toggleTheme}
+                  aria-label="Toggle theme"
+                  className={`inline-flex h-8 w-8 items-center justify-center rounded-full border ${palette.toggleSurface} ${palette.toggle}`}
                 >
                   {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
                 </button>
@@ -206,27 +222,11 @@ const Index = () => {
                   type="button"
                   onClick={() => setMobileOpen((v) => !v)}
                   aria-label="Toggle menu"
-                  className={`inline-flex h-8 w-8 items-center justify-center rounded-full border md:hidden ${palette.toggleSurface} ${palette.toggle}`}
+                  className={`inline-flex h-8 w-8 items-center justify-center rounded-full border ${palette.toggleSurface} ${palette.toggle}`}
                 >
                   {mobileOpen ? <X size={14} /> : <Menu size={14} />}
                 </button>
               </div>
-            </div>
-
-            <div className="hidden md:ml-6 md:flex md:flex-1 md:items-center md:justify-end md:gap-6">
-              <a href="#about" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">About</a>
-              <a href="#products" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Products</a>
-              <a href="#why-enso" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Why Enso</a>
-              <a href="#team" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Team</a>
-              <a href="#contact" className="text-xs uppercase tracking-[0.35em] hover:opacity-100 opacity-80">Contact</a>
-              <button
-                type="button"
-                onClick={toggleTheme}
-                aria-label="Toggle theme"
-                className={`inline-flex h-8 w-8 items-center justify-center rounded-full border ${palette.toggleSurface} ${palette.toggle}`}
-              >
-                {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
-              </button>
             </div>
 
             {mobileOpen && (
